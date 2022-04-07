@@ -1,0 +1,6 @@
+<% provide(:title, 'New') %>
+<% provide(:complement, 'Post') %>
+<% provide(:action_left) do %>
+  <%= link_to '<', root_path %>
+<% end %>
+<%= render 'form', post: @post %>

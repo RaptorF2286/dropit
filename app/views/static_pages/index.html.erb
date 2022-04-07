@@ -1,91 +1,15 @@
+<% provide(:title, 'Drop') %>
+<% provide(:complement, 'It') %>
+<% provide(:action_right) do %>
+  <%= link_to  '+', new_post_path %>
+<% end %>
+
 <section class="blogTiles">
   <div class="container">
     <div class="">
       <div class="row">
-        <div class="col-sm-8 col-md-6">
-          <a href="#" class="black tile">
-            <div class="tileImageFirst">
-              <img class="img-responsive img-fluid" src="https://source.unsplash.com/WLUHO9A_xik/1080x700">
-            </div>
-            <div class="tileContentFirst">
-              <h3>Most Recent Test Post</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed placerat porta ex, sed ullamcorper ipsum lacinia nec.<span>...</span></p>
-            </div>
-            <div class="tileOverlay">
-              <span>Read More</span>
-            </div>
-          </a>
-        </div>
-        <div class="col-sm-4 col-md-3">
-          <a href="#" class="tile">
-            <div class="tileImage">
-              <img class="img-responsive img-fluid" src="https://source.unsplash.com/Z1tWLxk7krs/1080x700">
-            </div>
-            <div class="tileContent">
-              <h3>Testing Posts Yo</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed placerat porta ex, sed ullamcorper ipsum lacinia nec.<span>...</span></p>
-            </div>
-            <div class="tileOverlay">
-              <span>Read More</span>
-            </div>
-          </a>
-        </div>
-        <div class="col-sm-4 col-md-3">
-          <a href="#" class="tile">
-            <div class="tileImage">
-              <img class="img-responsive img-fluid" src="https://source.unsplash.com/GnU2altkUSQ/1080x700">
-            </div>
-            <div class="tileContent">
-              <h3>Filler Post Dude</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed placerat porta ex, sed ullamcorper ipsum lacinia nec.<span>...</span></p>
-            </div>
-            <div class="tileOverlay">
-              <span>Read More</span>
-            </div>
-          </a>
-        </div>
-        <div class="col-sm-4 col-md-3">
-          <a href="#" class="tile">
-            <div class="tileImage">
-              <img class="img-responsive img-fluid" src="https://source.unsplash.com/X6CZGpJBi8U/1080x700">
-            </div>
-            <div class="tileContent">
-              <h3>Mhmm.. Filler Posts</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed placerat porta ex, sed ullamcorper ipsum lacinia nec.<span>...</span></p>
-            </div>
-            <div class="tileOverlay">
-              <span>Read More</span>
-            </div>
-          </a>
-        </div>
-        <div class="col-sm-4 col-md-3">
-          <a href="#" class="tile">
-            <div class="tileImage">
-              <img class="img-responsive img-fluid" src="https://source.unsplash.com/czVtGYACOMg/1080x700">
-            </div>
-            <div class="tileContent">
-              <h3>Not a Lorem Ipsum Post</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed placerat porta ex, sed ullamcorper ipsum lacinia nec.<span>...</span></p>
-            </div>
-            <div class="tileOverlay">
-              <span>Read More</span>
-            </div>
-          </a>
-        </div>
-        <div class="col-sm-4 col-md-3">
-          <a href="#" class="tile">
-            <div class="tileImage">
-              <img class="img-responsive img-fluid" src="https://source.unsplash.com/xMh_ww8HN_Q/1080x700">
-            </div>
-            <div class="tileContent">
-              <h3>Old of Posts</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed placerat porta ex, sed ullamcorper ipsum lacinia nec.<span>...</span></p>
-            </div>
-            <div class="tileOverlay">
-              <span>Read More</span>
-            </div>
-          </a>
-        </div>
+        <%= render @posts %>
+        
         <div class="col-sm-4 col-md-3">
           <a href="#" class="tileLast">
             <span>“Always pass on what you have learned.”</span>
