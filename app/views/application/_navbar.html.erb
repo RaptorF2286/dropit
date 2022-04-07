@@ -1,4 +1,14 @@
 <nav class="navbar">
-  <div class="title">Drop <span>It</span></div>
-  <button> + </button>
+  <div class="action-left">
+    <%= yield :action_left if content_for?(:action_left) %>
+  </div>
+  <div class="title">
+    <%= yield :title if content_for?(:title) %>
+    <span>
+      <%= yield :complement if content_for?(:complement) %>
+    </span>
+  </div>
+  <div class="action-right">
+    <%= yield :action_right if content_for?(:action_right) %>
+  </div>
 </nav>

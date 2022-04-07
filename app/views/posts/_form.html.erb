@@ -1,0 +1,22 @@
+<div class="card">
+  <%= form_for(post) do |f| %>
+    <div class="field">
+      <%= f.label :image %>
+      <%= f.file_field :image %>
+      <%= post.errors.full_messages_for(:image).join(', ')%>
+    </div>
+    <div class="field">
+      <%= f.label :title %>
+      <%= f.text_field :title, label: "Title" %>
+      <%= post.errors.full_messages_for(:title).join(', ')%>
+    </div>
+    <div class="field">
+      <%= f.label :description %>
+      <%= f.text_area :description, label: "Description" %>
+      <%= post.errors.full_messages_for(:description).join(', ') %>
+    </div>
+    <div class="field">
+      <%= f.submit :Save %>
+    </div>
+  <% end %>
+</div>

@@ -1,4 +1,6 @@
+# frozen_string_literal: true
+
+# Controlador de dashboard
 class DashboardController < ApplicationController
-  def index
-  end
+  before_action :authenticate_user!
 end

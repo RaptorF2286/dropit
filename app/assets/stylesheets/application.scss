@@ -25,8 +25,9 @@ $commonBorderRadius: 4px;
 
 nav.navbar {
   padding: 1em 2em;
-	position: relative;
+  position: relative;
   display: flex;
+  align-items: center;
   justify-content: center;
   margin: 10px auto;
   .title {
@@ -41,14 +42,52 @@ nav.navbar {
       font-weight: bold;
     }
   }
-  a, button {
-		position: absolute;
-		right: 0;
-    font-weight: bold;
+
+  .action-right {
+    position: absolute;
+    right: 0;
+  }
+
+  .action-left {
+    position: absolute;
+    left: 0;
+  }
+
+  a,
+  button {
+    text-decoration: none;
     background-color: transparent;
-    color: #f66;
+    color: $accent;
     font-size: 90px;
-    border: 2px solid #fff;
+    border: 2px solid $white;
     border-radius: 4px;
   }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+
+  .field {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    label {
+      font-weight: bold;
+    }
+  }
+
+  input[type=submit] {
+    color: $white;
+    border: 0;
+    padding: 10px 15px;
+    background-color: $accent;
+  }
+}
+
+.card {
+  padding: 10px;
+  border: 1px solid black;
+  margin: auto;
+  max-width: 600px;
 }

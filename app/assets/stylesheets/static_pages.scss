@@ -1,3 +1,26 @@
+// Variables
+
+$white: #fff;
+$gray: #333;
+$black: #000;
+$accent: #f66;
+
+$commonBorderRadius: 4px;
+
+// Mixins
+
+@mixin transition($time, $type, $selector) {
+  -webkit-transition: $time $type $selector;
+  -moz-transition: $time $type $selector;
+  -o-transition: $time $type $selector;
+  transition: $time $type $selector;
+}
+
+@mixin transitionDelay($time) {
+  -webkit-transition-delay: $time;
+  transition-delay: $time;
+}
+
 .blogTiles {
   padding-bottom: 50px;
   background: url("") no-repeat fixed center center;
