@@ -110,12 +110,18 @@ form {
   border: 1px solid black;
   margin: auto;
   max-width: 600px;
-  h1 {
+  h1,
+  h2,
+  h3,
+  h4 {
     padding-left: 10px;
     padding-right: 10px;
     margin-bottom: 0;
   }
   blockquote {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
     color: darkgrey;
     padding-left: 15px;
     padding-right: 15px;
@@ -129,6 +135,10 @@ form {
   text-align: center;
 }
 
+.text-right {
+  text-align: right;
+}
+
 .sized-box {
   width: 100%;
   height: 100px;
@@ -136,6 +146,14 @@ form {
 
 .mt {
   margin-top: 10px;
+}
+
+.margin-remove {
+  margin: 0;
+}
+
+.actions {
+  text-align: right;
 }
 
 .space-between-middle {

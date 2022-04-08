@@ -1,0 +1,18 @@
+<div class="comment">
+  <%= form_for(comment, url: post_comments_path(post)) do |f| %>
+    <div class="field">
+      <%= f.label :title %>
+      <%= f.text_field :title, label: "Title" %>
+      <%= comment.errors.full_messages_for(:title).join(', ')%>
+    </div>
+    <div class="field">
+      <%= f.label :description %>
+      <%= f.text_area :description, label: "Description" %>
+      <%= comment.errors.full_messages_for(:description).join(', ') %>
+    </div>
+    <div class="field">
+      <%= f.submit :Save %>
+    </div>
+  <% end %>
+</div>
+

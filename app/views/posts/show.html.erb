@@ -14,10 +14,19 @@
     </div>
   </div>
   <%= image_tag @post.image %>
+  <br>
   <p><%= @post.description %></p>
 </div>
 <div class="card mt">
-  <ul>
+  <h3 class="text-center">Comments</h3>
+  <%= render @post.comments %>
+</div>
+<div class="card mt">
+  <h3 class="text-right">New Comment</h3>
+  <%= render 'comments/form', comment: @post.comments.new, post: @post %>
+</div>
+<div class="card mt">
+  <ul class="margin-remove">
     <% @post.users.each do |user| %>
       <li>
         Was seen by <%= user.email %>
@@ -25,6 +34,4 @@
     <% end %>
   </ul>
 </div>
-
-
 <div class="sized-box"></div>

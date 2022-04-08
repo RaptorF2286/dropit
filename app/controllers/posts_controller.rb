@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Controlador principal
+# Controlador de posts
 class PostsController < DashboardController
   before_action :set_post, only: [:show]
 
