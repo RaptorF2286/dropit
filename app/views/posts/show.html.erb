@@ -17,10 +17,12 @@
   <br>
   <p><%= @post.description %></p>
 </div>
-<div class="card mt">
-  <h3 class="text-center">Comments</h3>
-  <%= render @post.comments %>
-</div>
+<% if @post.comments.any? %>
+  <div class="card mt">
+    <h3 class="text-center">Comments</h3>
+    <%= render @post.comments %>
+  </div>
+<% end %>
 <div class="card mt">
   <h3 class="text-right">New Comment</h3>
   <%= render 'comments/form', comment: @post.comments.new, post: @post %>
