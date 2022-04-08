@@ -3,6 +3,11 @@
 <% provide(:action_right) do %>
   <%= link_to  '+', new_post_path %>
 <% end %>
+<% provide(:action_left) do %>
+ <% if current_user %>
+  <%= link_to '⌂', dashboard_index_path %>
+ <% end %>
+<% end %>
 
 <section class="blogTiles">
   <div class="container">

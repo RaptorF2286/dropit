@@ -7,4 +7,11 @@ class Post < ApplicationRecord
   validates :title, presence: true
 
   has_one_attached :image
+
+  has_and_belongs_to_many :users, dependent: :destroy
+  def to_param
+    return nil unless persisted?
+
+    [id, title.parameterize].join('-')
+  end
 end

@@ -1,6 +1,6 @@
 <% featured = post.id == Post.first.id %>
 <div class="<%= featured ? 'col-sm-8 col-md-6' : ' col-sm-4 col-md-3' %>">
-  <a href="#" class="tile <%= 'black' if featured %> ">
+  <%= link_to post_path(post), class: "tile #{'black' if featured}" do %>
     <div class="<%= featured ? 'tileImageFirst' : 'tileImage' %> ">
       <%= image_tag post.image, class: 'img-responsive img-fluid' %>
     </div>
@@ -11,5 +11,5 @@
     <div class="tileOverlay">
       <span>Read More</span>
     </div>
-  </a>
+  <% end %>
 </div>
