@@ -1,0 +1,7 @@
+<%= link_to post_path(post), class: "carousel-item #{'active' if index == 0}" do %>
+  <%= image_tag post.image, class: 'd-block w-100', alt: post.title %>
+  <div class="carousel-caption d-none d-md-block">
+    <h5><%= post.title %></h5>
+    <p><%= post.description %></p>
+  </div>
+<% end %>

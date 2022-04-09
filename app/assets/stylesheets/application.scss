@@ -129,6 +129,11 @@ form {
     padding-left: 10px;
     padding-right: 10px;
   }
+  &.carousel.slide {
+    margin-bottom: 2em;
+    max-width: 500px;
+    max-height: 500px;
+  }
 }
 
 .text-center {
@@ -172,4 +177,12 @@ form {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.max-h400px {
+  max-height: 400px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }

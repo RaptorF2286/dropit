@@ -1,15 +1,54 @@
 <% featured = post.id == Post.first.id %>
 <div class="<%= featured ? 'col-sm-8 col-md-6' : ' col-sm-4 col-md-3' %>">
-  <%= link_to post_path(post), class: "tile #{'black' if featured}" do %>
+  <div class="tile <%= 'black' if featured %>}">
     <div class="<%= featured ? 'tileImageFirst' : 'tileImage' %> ">
       <%= image_tag post.image, class: 'img-responsive img-fluid' %>
     </div>
     <div class="<%= featured ? 'tileContentFirst' : 'tileContent' %>">
-      <h3><%= post.title %></h3>
-      <p><%= post.description %></p>
+      <h3><%= post.short_title %></h3>
+      <p><%= post.short_description %></p>
     </div>
     <div class="tileOverlay">
-      <span>Read More</span>
+      <%= link_to post_path(post), class: 'margin' do %>
+        <span>Read More</span>
+      <% end %>
+      <span class="cursor-pointer" data-bs-toggle="modal" data-bs-target="#post-<%= post.id %>-modal">
+        See details
+      </span>
     </div>
-  <% end %>
+  </div>
+</div>
+<!-- Modal -->
+<div id="post-<%= post.id %>-modal" class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= post.short_title %></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Created Date</th>
+              <th scope="col">Last Modified Date</th>
+              <th scope="col">Author Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= post.created_at.to_formatted_s(:short) %></td>
+              <td><%= post.updated_at.to_formatted_s(:short) %></td>
+              <td><%= post.kreator.display_name %></td>
+            </tr>
+            
+            
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
