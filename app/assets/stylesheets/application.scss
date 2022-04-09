@@ -99,6 +99,10 @@ form {
   width: 100%;
   max-width: 600px;
 
+  .btn-outline-primary {
+    border: 1px $accent solid;
+  }
+
   a:not(.btn) {
     color: $accent;
     font-weight: bold;

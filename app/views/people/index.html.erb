@@ -15,7 +15,7 @@
     <tbody>
       <% @people.each do |person| %>
         <tr>
-          <td><%= person.username %></td>
+          <td><%= person.display_name %></td>
           <td><%= person.kreated_posts.size %></td>
           <td>
             <div class="space-around-wrap">
