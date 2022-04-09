@@ -32,6 +32,9 @@ class PostsController < DashboardController
   end
 
   def post_params
-    params.require(:post).permit(:title, :description, :image)
+    params.require(:post).permit(
+      :short_title, :short_description, :title, :description, :image,
+      :color, :location
+    )
   end
 end

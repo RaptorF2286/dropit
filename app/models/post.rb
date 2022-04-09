@@ -10,7 +10,12 @@ class Post < ApplicationRecord
   has_one_attached :image
   has_rich_text :description
 
+  validates :short_title, presence: true
+  validates :short_description, presence: true
   validates :title, presence: true
+  validates :location, presence: true
+  validates :color, presence: true
+  validate :validate_image
 
   def to_param
     return nil unless persisted?

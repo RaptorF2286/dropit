@@ -6,15 +6,32 @@
       <%= post.errors.full_messages_for(:image).join(', ')%>
     </div>
     <div class="field">
-      <%= f.label :title %>
-      <%= f.text_field :title, label: "Title" %>
-      <%= post.errors.full_messages_for(:title).join(', ')%>
+      <%= f.label :short_title %>
+      <%= f.text_field :short_title, required: ''  %>
+      <%= post.errors.full_messages_for(:short_title).join(', ')%>
     </div>
     <div class="field">
-      <%= f.label :description %>
-      <%= f.text_area :description, label: "Description" %>
-      <%= post.errors.full_messages_for(:description).join(', ') %>
+      <%= f.label :short_description %>
+      <%= f.text_area :short_description, required: '' %>
+      <%= post.errors.full_messages_for(:short_description).join(', ') %>
     </div>
+    <div class="field">
+      <%= f.label :title %>
+      <%= f.text_field :title, required: '' %>
+      <%= post.errors.full_messages_for(:short_title).join(', ')%>
+    </div>
+    <div class="field">
+      <%= f.label :color %>
+      <%= f.color_field :color, required: '' %>
+      <%= post.errors.full_messages_for(:color).join(', ')%>
+    </div>
+    <div class="field">
+      <%= f.label :location %>
+      <%= f.text_field :location, required: '' %>
+      <%= post.errors.full_messages_for(:location).join(', ')%>
+    </div>
+    <%= f.label :description %>
+    <%= f.rich_text_area :description %>
     <div class="field">
       <%= f.submit :Save %>
     </div>

@@ -6,7 +6,10 @@
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
+require("trix")
+require("@rails/actiontext")
 require("channels")
+require("./jquery-forms")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -37,5 +40,3 @@ document.addEventListener("turbolinks:load", () => {
         return new Popover(popoverTriggerEl)
     })
 })
-require("trix")
-require("@rails/actiontext")
