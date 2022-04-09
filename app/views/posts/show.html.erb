@@ -30,8 +30,16 @@
 <div class="card mt">
   <ul class="margin-remove">
     <% @post.people.each do |user| %>
+      <% next if user.id == current_user.id %>
       <li>
-        Was seen by <%= user.display_name %>
+        <div class="space-around-wrap">
+          Was seen by <%= user.display_name %>
+          <% if Relationship.following?(follower: current_user.id, followed: user.id) %>
+            <%= button_to "Unfollow", {controller: :relationships, action: :destroy, id: user.id}, method: :delete, class: 'btn btn-outline-secondary reset' %>
+          <% else %>
+            <%= button_to "Follow", relationships_path, method: :post, params: {followed_id: user.id}, class: 'btn btn-outline-secondary reset' %>
+          <% end %>
+        </div>
       </li>
     <% end %>
   </ul>

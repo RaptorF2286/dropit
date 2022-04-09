@@ -11,7 +11,7 @@
       <h3>Followed</h3>
       <ul class="list-group">
         <% @person.followers.each do |relationship| %>
-          <li class="list-group-item"> <%= link_to relationship.display_follower_name, person_path(relationship.follower_id) %> </li>
+          <li class="list-group-item"> <%= link_to relationship.display_followed_name, person_path(relationship.follower_id) %> </li>
         <% end %>
       </ul>
     </div>
@@ -23,15 +23,6 @@
         <% end %>
       </ul>
     </div>
-  </div>
-  <div class="links">
-    <%= link_to  "See people", people_path, class: 'btn btn-outline-secondary' %>
-  </div>
-  <hr>
-  <div class="links">
-    <%= link_to "Edit profile", edit_user_registration_path, class: 'btn btn-outline-secondary' %>
-    <%= link_to "Change password", edit_user_registration_path, class: 'btn btn-outline-secondary' %>
-    <%= link_to "Logout", destroy_user_session_path, class: 'btn btn-outline-secondary', method: :delete%>
   </div>
 </div>
 <% if @person.kreated_posts.any? %>
@@ -59,3 +50,4 @@
     </table>
   </div>
 <% end %>
+
