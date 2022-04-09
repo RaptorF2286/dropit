@@ -1,7 +1,9 @@
 <hr>
-<h4><%= comment.title %></h4>
-<blockquote>
-  <span><%= comment.user.email %></span>
-  <span><%= time_ago_in_words comment.created_at %></span>
-</blockquote>
-<p><%= comment.title %></p>
+<div>
+  <h4><%= comment.title %></h4>
+  <blockquote>
+    <span><%= comment.person %></span>
+    <span><%= time_ago_in_words comment.created_at %></span>
+  </blockquote>
+  <p><%= comment.title %></p>
+</div>

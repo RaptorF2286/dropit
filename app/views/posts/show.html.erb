@@ -7,10 +7,10 @@
   <div class="space-between-middle">
     <div style="flex: auto">
       <h1><%= @post.title %></h1>
-      <blockquote><%= @post.user.email %></blockquote>
+      <blockquote><%= @post.person %></blockquote>
     </div>
     <div style="flex: expand">
-      <%= @post.users.size if @post.users.size > 1 %> <%= @post.users.size == 1 ? 'first view' : 'views' %>
+      <%= @post.people.size if @post.people.size > 1 %> <%= @post.people.size == 1 ? 'first view' : 'views' %>
     </div>
   </div>
   <%= image_tag @post.image %>
@@ -29,9 +29,9 @@
 </div>
 <div class="card mt">
   <ul class="margin-remove">
-    <% @post.users.each do |user| %>
+    <% @post.people.each do |user| %>
       <li>
-        Was seen by <%= user.email %>
+        Was seen by <%= user.display_name %>
       </li>
     <% end %>
   </ul>

@@ -1,18 +1,24 @@
 # frozen_string_literal: true
 
-# Controlador principal
+# Controlador de posts
 class Post < ApplicationRecord
-  belongs_to :user
-
+  belongs_to :person
   has_many :comments
+  has_many :people
+  has_and_belongs_to_many :people, dependent: :destroy
+
   has_one_attached :image
+  has_rich_text :description
 
   validates :title, presence: true
 
-  has_and_belongs_to_many :users, dependent: :destroy
   def to_param
     return nil unless persisted?
 
     [id, title.parameterize].join('-')
+  end
+
+  def kreator
+    Person.find(person_id)
   end
 end

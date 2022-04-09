@@ -1,24 +1,22 @@
 <% provide(:title, 'Drop') %>
 <% provide(:complement, 'It') %>
-<% provide(:action_right) do %>
-  <%= link_to  '+', new_post_path %>
+<% if current_user %>
+  <% provide(:action_right) do %>
+    <%= link_to  '+', new_post_path %>
+  <% end %>
 <% end %>
 <% provide(:action_left) do %>
- <% if current_user %>
   <%= link_to '⌂', dashboard_index_path %>
- <% end %>
 <% end %>
-
 <section class="blogTiles">
   <div class="container">
     <div class="">
       <div class="row">
         <%= render @posts %>
-        
         <div class="col-sm-4 col-md-3">
-          <a href="#" class="tileLast">
+          <div class="tileLast">
             <span>“Always pass on what you have learned.”</span>
-          </a>
+          </div>
         </div>
       </div>
     </div>

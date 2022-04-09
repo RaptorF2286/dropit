@@ -9,12 +9,12 @@ class PostsController < DashboardController
   end
 
   def show
-    @post.users << current_user unless @post.users.exists? current_user.id
+    @post.people << current_user.person unless @post.people.exists? current_user.id
   end
 
   def create
     @post = Post.new(post_params)
-    @post.user_id = current_user.id
+    @post.person_id = current_user.id
 
     if @post.save
       flash[:success] = '¡Success!'

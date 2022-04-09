@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_08_071516) do
+ActiveRecord::Schema.define(version: 2022_04_09_001048) do
+
+  create_table "action_text_rich_texts", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "body"
+    t.string "record_type", null: false
+    t.integer "record_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
+  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -36,30 +46,41 @@ ActiveRecord::Schema.define(version: 2022_04_08_071516) do
   create_table "comments", force: :cascade do |t|
     t.string "title"
     t.string "description"
-    t.integer "user_id", null: false
+    t.integer "person_id", null: false
     t.integer "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["person_id"], name: "index_comments_on_person_id"
     t.index ["post_id"], name: "index_comments_on_post_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "people", force: :cascade do |t|
+    t.string "name"
+    t.string "last_name"
+    t.string "username"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_people_on_user_id"
+  end
+
+  create_table "people_posts", id: false, force: :cascade do |t|
+    t.integer "post_id", null: false
+    t.integer "person_id", null: false
+    t.index ["person_id", "post_id"], name: "index_people_posts_on_person_id_and_post_id"
+    t.index ["post_id", "person_id"], name: "index_people_posts_on_post_id_and_person_id"
   end
 
   create_table "posts", force: :cascade do |t|
+    t.string "short_title"
     t.string "title"
-    t.text "description"
-    t.string "file"
-    t.integer "user_id", null: false
+    t.string "short_description"
+    t.integer "person_id", null: false
+    t.string "location"
+    t.string "color", default: "#ffffff"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "slug"
-    t.index ["user_id"], name: "index_posts_on_user_id"
-  end
-
-  create_table "posts_users", id: false, force: :cascade do |t|
-    t.integer "post_id", null: false
-    t.integer "user_id", null: false
-    t.index ["post_id", "user_id"], name: "index_posts_users_on_post_id_and_user_id"
-    t.index ["user_id", "post_id"], name: "index_posts_users_on_user_id_and_post_id"
+    t.index ["person_id"], name: "index_posts_on_person_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -75,7 +96,8 @@ ActiveRecord::Schema.define(version: 2022_04_08_071516) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comments", "people"
   add_foreign_key "comments", "posts"
-  add_foreign_key "comments", "users"
-  add_foreign_key "posts", "users"
+  add_foreign_key "people", "users"
+  add_foreign_key "posts", "people"
 end
