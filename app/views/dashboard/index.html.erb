@@ -54,7 +54,10 @@
             <td><%= post.id %></td>
             <td><%= post.short_title %></td>
             <td><%= post.people.size %></td>
-            <td class="links"><%= link_to 'Go to post', post_path(post), class: 'btn btn-outline-secondary' %></td>
+            <td class="links">
+              <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-outline-secondary' %>
+              <%= link_to 'Show', post_path(post), class: 'btn btn-outline-secondary' %>
+            </td>
           </tr>
         <% end %>
       </tbody>
