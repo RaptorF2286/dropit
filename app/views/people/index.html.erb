@@ -18,8 +18,14 @@
           <td><%= person.username %></td>
           <td><%= person.kreated_posts.size %></td>
           <td>
-            <%= link_to "See posts", person_path(person), class: 'btn btn-outline-secondary' %>
-            <%= link_to "Follow", person_path(person), class: 'btn btn-outline-secondary' %>
+            <div class="space-around-wrap">
+              <%= link_to "See posts", person_path(person), class: 'btn btn-outline-secondary' %>
+              <% if Relationship.following?(follower: current_user.id, followed: person.id) %>
+                <%= button_to "Unfollow", {controller: :relationships, action: :destroy, id: person.id}, method: :delete, class: 'btn btn-outline-secondary reset' %>
+              <% else %>
+                <%= button_to "Follow", relationships_path, method: :post, params: {followed_id: person.id}, class: 'btn btn-outline-secondary reset' %>
+              <% end %>
+            </div>
           </td>
         </tr>
       <% end %>

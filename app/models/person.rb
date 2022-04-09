@@ -12,6 +12,14 @@ class Person < ApplicationRecord
     username || "Anonymous_#{id}"
   end
 
+  def followers
+    Relationship.where(followed_id: id)
+  end
+
+  def following
+    Relationship.where(follower_id: id)
+  end
+
   def to_s
     display_name
   end

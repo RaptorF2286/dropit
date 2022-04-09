@@ -1,26 +1,25 @@
-<% provide(:title, 'The') %>
-<% provide(:complement, 'Dashboard') %>
+<% provide(:title, 'User') %>
+<% provide(:complement, @person) %>
 <% provide(:action_left) do %>
   <%= link_to '<', root_path %>
 <% end %>
 <div class="card">
-  <h1 class="text-center"><%= @person %></h1>
+  <h1 class="text-center"></h1>
   <hr>
   <div class="space-around-wrap text-center">
     <div>
       <h3>Followed</h3>
-
       <ul class="list-group">
-        <% @person.kreated_posts.each do |post|  %>
-          <li class="list-group-item"> <%= link_to post.short_title, post_path(post) %> </li>
+        <% @person.followers.each do |relationship| %>
+          <li class="list-group-item"> <%= link_to relationship.display_follower_name, person_path(relationship) %> </li>
         <% end %>
       </ul>
     </div>
     <div>
       <h3>Following</h3>
       <ul>
-        <% @person.kreated_posts.each do |post|  %>
-          <li class="list-group-item"> <%= link_to post.short_title, post_path(post) %> </li>
+        <% @person.following.each do |relationship| %>
+          <li class="list-group-item"> <%= link_to relationship.display_followed_name, person_path(relationship) %> </li>
         <% end %>
       </ul>
     </div>
@@ -30,9 +29,9 @@
   </div>
   <hr>
   <div class="links">
-    <%= link_to  "Edit profile", edit_user_registration_path, class: 'btn btn-outline-secondary' %>
-    <%= link_to  "Change password", edit_user_registration_path, class: 'btn btn-outline-secondary' %>
-    <%= link_to  "Logout", destroy_user_session_path, class: 'btn btn-outline-secondary', method: :delete  %>
+    <%= link_to "Edit profile", edit_user_registration_path, class: 'btn btn-outline-secondary' %>
+    <%= link_to "Change password", edit_user_registration_path, class: 'btn btn-outline-secondary' %>
+    <%= link_to "Logout", destroy_user_session_path, class: 'btn btn-outline-secondary'%>
   </div>
 </div>
 <% if @person.kreated_posts.any? %>

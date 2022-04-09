@@ -71,7 +71,7 @@ form {
     }
   }
 
-  input[type="submit"] {
+  input[type="submit"]:not(.reset) {
     color: $white;
     border: 0;
     padding: 10px 15px;
@@ -144,6 +144,10 @@ form {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
+}
+
+.flex {
+  display: flex;
 }
 
 .space-around-wrap {

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :people
+  resources :relationships, only: %i[create destroy]
   resources :posts do
     resources :comments
   end
