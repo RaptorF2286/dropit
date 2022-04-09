@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Controlador de posts
+# Modelo de posts
 class Post < ApplicationRecord
   belongs_to :person
   has_many :comments

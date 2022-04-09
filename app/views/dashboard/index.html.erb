@@ -4,23 +4,59 @@
   <%= link_to '<', root_path %>
 <% end %>
 <div class="card">
-  <h1><%= @person %></h1>
-</div>
+  <h1 class="text-center"><%= @person %></h1>
+  <hr>
+  <div class="space-around-wrap text-center">
+    <div>
+      <h3>Followed</h3>
 
+      <ul class="list-group">
+        <% @person.kreated_posts.each do |post|  %>
+          <li class="list-group-item"> <%= link_to post.short_title, post_path(post) %> </li>
+        <% end %>
+      </ul>
+    </div>
+    <div>
+      <h3>Following</h3>
+      <ul>
+        <% @person.kreated_posts.each do |post|  %>
+          <li class="list-group-item"> <%= link_to post.short_title, post_path(post) %> </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="links">
+    <%= link_to  "See people", people_path, class: 'btn btn-outline-secondary' %>
+  </div>
+  <hr>
+  <div class="links">
+    <%= link_to  "Edit profile", edit_user_registration_path, class: 'btn btn-outline-secondary' %>
+    <%= link_to  "Change password", edit_user_registration_path, class: 'btn btn-outline-secondary' %>
+    <%= link_to  "Logout", destroy_user_session_path, class: 'btn btn-outline-secondary', method: :delete  %>
+  </div>
+</div>
 <% if @person.kreated_posts.any? %>
   <div class="card mt">
-    <h2>Posts</h2>
-    <ul>
-      <% @person.kreated_posts.each do |post|  %>
-        <li> <%= link_to post.short_title, post_path(post) %> </li>
-      <% end %>
-    </ul>
+    <h2 class="text-center">Posts</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Short Title</th>
+          <th scope="col">Views</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @person.kreated_posts.each do |post|  %>
+          <tr>
+            <td><%= post.id %></td>
+            <td><%= post.short_title %></td>
+            <td><%= post.people.size %></td>
+            <td class="links"><%= link_to 'Go to post', post_path(post), class: 'btn btn-outline-secondary' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 <% end %>
-
-<div class="card mt">
-  <div class="links">
-    <%= link_to  "Change password", edit_user_registration_path %>
-    <%= link_to  "Logout", destroy_user_session_path, method: :delete  %>
-  </div>
-</div>

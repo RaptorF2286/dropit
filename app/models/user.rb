@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Controlador de usuarios de devise
+# Modelo de usuarios de devise
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

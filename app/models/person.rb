@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Controlador de personas
+# Modelo de personas
 class Person < ApplicationRecord
   has_one :user, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -14,6 +14,12 @@ class Person < ApplicationRecord
 
   def to_s
     display_name
+  end
+
+  def to_param
+    return nil unless persisted?
+
+    [id, (username ? username.parameterize : 'Unnamed')].join('-')
   end
 
   def kreated_posts

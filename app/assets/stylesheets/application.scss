@@ -7,20 +7,6 @@ $accent: #f66;
 
 $commonBorderRadius: 4px;
 
-// Mixins
-
-@mixin transition($time, $type, $selector) {
-  -webkit-transition: $time $type $selector;
-  -moz-transition: $time $type $selector;
-  -o-transition: $time $type $selector;
-  transition: $time $type $selector;
-}
-
-@mixin transitionDelay($time) {
-  -webkit-transition-delay: $time;
-  transition-delay: $time;
-}
-
 @import "static_pages";
 
 nav.navbar {
@@ -129,6 +115,7 @@ form {
   }
   p {
     padding-left: 10px;
+    padding-right: 10px;
   }
 }
 
@@ -156,6 +143,12 @@ form {
 .actions {
   display: flex;
   flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.space-around-wrap {
+  display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
