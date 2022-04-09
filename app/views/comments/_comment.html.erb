@@ -2,8 +2,8 @@
 <div>
   <h4><%= comment.title %></h4>
   <blockquote>
-    <span><%= comment.person %></span>
+    <span><%= link_to comment.person, person_path(comment.person) %></span>
     <span><%= time_ago_in_words comment.created_at %></span>
   </blockquote>
-  <p><%= comment.title %></p>
+  <p><%= comment.description %></p>
 </div>

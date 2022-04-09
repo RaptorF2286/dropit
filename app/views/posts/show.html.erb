@@ -7,7 +7,7 @@
   <div class="space-between-middle">
     <div style="flex: auto">
       <h1><%= @post.title %></h1>
-      <blockquote><%= @post.person %></blockquote>
+      <blockquote><%= link_to @post.person, person_path(@post.person) %></blockquote>
     </div>
     <div style="flex: expand">
       <%= @post.people.size if @post.people.size > 1 %> <%= @post.people.size == 1 ? 'first view' : 'views' %>
