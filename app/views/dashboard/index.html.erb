@@ -6,14 +6,18 @@
 <div class="card">
   <h1><%= @person %></h1>
 </div>
-<div class="card">
-  <h2>Posts</h2>
-  <ul>
-    <% @person.kreated_posts.each do |post|  %>
-      <li> <%= link_to post.short_title, post_path(post) %> </li>
-    <% end %>
-  </ul>
-</div>
+
+<% if @person.kreated_posts.any? %>
+  <div class="card mt">
+    <h2>Posts</h2>
+    <ul>
+      <% @person.kreated_posts.each do |post|  %>
+        <li> <%= link_to post.short_title, post_path(post) %> </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <div class="card mt">
   <div class="links">
     <%= link_to  "Change password", edit_user_registration_path %>

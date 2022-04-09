@@ -10,12 +10,8 @@
   <body>
     <div class="class: container">
       <%= render 'navbar' %>
-      <% if notice %>
-        <div class="notice"><%= notice %></div>
-      <% end %>
-      <% if notice %>
-        <div class="alert"><%= alert %></div>
-      <% end %>
+      <%= render 'flash' %>
+    
     </div>
     <%= yield %>
   </body>

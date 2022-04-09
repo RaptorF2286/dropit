@@ -20,11 +20,9 @@ require("channels")
 require("@popperjs/core")
 
 import "bootstrap"
-
-
 import { Tooltip, Popover } from "bootstrap"
 
-
+global.toastr = require("toastr")
 require("../stylesheets/application.scss")
 
 document.addEventListener("turbolinks:load", () => {
